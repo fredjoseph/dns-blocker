@@ -1,0 +1,37 @@
+{
+  "name": "DNS Blocker",
+  "version": "1.0.0",
+  "description": "A simple DNS blocker",
+  "author": "Frédéric JOSEPH",
+  "homepage_url": "https://github.com/fredjoseph/dns-blocker",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "http://*/",
+    "https://*/"
+  ],
+  "icons": {
+    "16": "assets/shield-red16.png",
+    "48": "assets/shield-red48.png",
+    "128": "assets/shield-red128.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "assets/shield-red16.png",
+      "32": "assets/shield-red32.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "57.0"
+    }
+  },  
+  "manifest_version": 2
+}

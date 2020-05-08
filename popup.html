@@ -4,39 +4,71 @@
 	.switch-light::after {
 		content: unset !important;
 	}
+
+	.switch-material.switch-light a {
+		width: 14px !important;
+		height: 14px !important;
+		top: -1.5px !important;
+		right: 16px !important;
+	}
+
+	.switch-material.switch-light input:checked ~ span a {
+		right: 0 !important;
+	}
+
+	.switch-material.switch-light {
+		display: flex; 
+		justify-content: space-between; 
+		margin-bottom: 10px;
+	}
+
+	.switch-material.switch-light > span {
+		width: 30px !important;
+		height: 12px !important;
+	}
+
+	.switch-material.switch-light > span:before, .switch-material.switch-light > span:after {
+		width: 32px !important;
+		height: 32px !important;
+		margin-left: -10px !important;
+		margin-top: -10px !important;
+	}
+
+	.switch-material.switch-light > span:after {
+		margin-left: 0 !important;
+		margin-right: -10px !important;
+	}
 </style>
 
 <head>
 	<link rel="stylesheet" type="text/css"
-		href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch.css" />
+		href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch-px.css" />
 	<script src="popup.js"></script>
 </head>
 
-<body style="width: 250px;">
+<body style="width: 200px; overflow: hidden;">
 	<h3>DNS Blocker Activation</h3>
 	<hr>
 	<div style="margin: 10px 0 30px 0;">
-		<label class="switch-light switch-ios"
-			style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+		<label class="switch-light switch-material">
 			<input type="checkbox" id="global">
-			<strong style="align-self:center;">
+			<strong>
 				Global
 			</strong>
-			<span style="width: 100px;">
-				<span>Off</span>
-				<span>On</span>
+			<span>
+				<span></span>
+				<span></span>
 				<a></a>
 			</span>
 		</label>
-		<label class="switch-light switch-ios"
-			style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+		<label class="switch-light switch-material">
 			<input type="checkbox" id="session">
 			<strong>
 				Session
 			</strong>
-			<span style="width: 100px;">
-				<span>Off</span>
-				<span>On</span>
+			<span>
+				<span></span>
+				<span></span>
 				<a></a>
 			</span>
 		</label>

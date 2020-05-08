@@ -8,6 +8,9 @@ window.onload = function () {
 			if (changes.version) {
 				versionElement.textContent = changes.version.newValue;
 			}
+			if (changes.sessionActivationStatus) {
+				sessionToggle.checked = changes.sessionActivationStatus.newValue;
+			}
 		})
 		chrome.storage.local.get(['globalActivationStatus', 'sessionActivationStatus'], res => {
 			sessionToggle.checked = res.sessionActivationStatus || false;

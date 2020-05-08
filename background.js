@@ -1,22 +1,28 @@
-const refresh_url = 'https://raw.githubusercontent.com/fredjoseph/dns-blocker/master/data.js';
+const refresh_url = 'https://raw.githubusercontent.com/fredjoseph/dns-blocker/master/data.json';
 var enabled = false;
 var blocked_domains;
+
+async function removeStorageData(dataKeys) {
+	return new Promise((resolve, _reject) => {
+		chrome.storage.local.remove(dataKeys, () => resolve());
+	});
+}
+
+async function getStorageData(dataKeys) {
+	return new Promise((resolve, _reject) => {
+		chrome.storage.local.get(dataKeys, res => resolve(res));
+	});
+}
+
+async function setStorageData(obj) {
+	return new Promise((resolve, _reject) => {
+		chrome.storage.local.set(obj, () => resolve());
+	});
+}
 
 const redirector = details => {
 	console.log("blocking:", details.url);
 	return { cancel: enabled };
-}
-
-function activateBlocking() {
-	chrome.webRequest.onBeforeRequest.addListener(
-		redirector,
-		{ urls: blocked_domains },
-		["blocking"]
-	);
-}
-
-function deactivateBlocking() {
-	chrome.webRequest.onBeforeRequest.removeListener( redirector );
 }
 
 function activate() {
@@ -24,83 +30,125 @@ function activate() {
 		return;
 	}
 	enabled = true;
-	chrome.browserAction.setIcon({
-		path: {
-			"16": "assets/shield-green16.png",
-			"32": "assets/shield-green32.png"
-		}
-	});
+	chrome.webRequest.onBeforeRequest.addListener(
+		redirector,
+		{ urls: blocked_domains },
+		["blocking"]
+	);
+
+	chrome.browserAction.setBadgeText({ text: '✓' });
+	chrome.browserAction.setBadgeBackgroundColor({ color: '#008800' });
 	chrome.browserAction.setTitle({ title: 'DNS Blocker is currently running' });
-	activateBlocking();
-	chrome.storage.local.get(['version'], res => {
-		checkForUpdate(res.version);
-	})
 }
 
 function deactivate() {
 	enabled = false;
-	chrome.browserAction.setIcon({
-		path: {
-			"16": "assets/shield-red16.png",
-			"32": "assets/shield-red32.png"
-		}
-	});
+	chrome.webRequest.onBeforeRequest.removeListener(redirector);
+
+	chrome.browserAction.setBadgeText({ text: '✗' });
+	chrome.browserAction.setBadgeBackgroundColor({ color: '#CC0000' });
 	chrome.browserAction.setTitle({ title: 'DNS Blocker is turned off' });
-	deactivateBlocking();
 }
 
-function checkForUpdate(localVersion) {
-	let xhr = new XMLHttpRequest();
-	xhr.open('GET', refresh_url);
-	xhr.setRequestHeader('Content-Type', 'application/json');
-	xhr.onload = () => {
-		if (xhr.status != 200) {
-			return;
+async function checkForUpdate() {
+	return new Promise(async (resolve, reject) => {
+		const { lastCheckDate, version } = await getStorageData(['lastCheckDate', 'version']);
+		const currentDateISO = new Date().toISOString().split('T')[0];
+		if (currentDateISO === lastCheckDate) {
+			return resolve(false);	// already check today
 		}
-		let data = JSON.parse(xhr.responseText);
-		if (localVersion != data.version) {
-			chrome.storage.local.set({ version: data.version }, () => {});
-			deactivateBlocking();
-			blocked_domains = data.domains;
-			activateBlocking();
-		}
-	};
-	xhr.send();
-}
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', refresh_url);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.onload = async () => {
+			if (xhr.status != 200) {
+				return reject();
+			}
+			let data = JSON.parse(xhr.responseText);
+			if (version != data.version) {
+				await setStorageData({ ...data });
+			}
+			setStorageData({ lastCheckDate: currentDateISO });
 
-if (chrome.runtime.onSuspend) {
-	chrome.runtime.onSuspend.addListener(() => {
-		// Clean storage
-		chrome.storage.local.remove(['sessionActivationStatus', 'version'], () => {});
+			return resolve(version != data.version);
+		};
+		xhr.send();
 	})
 }
 
-chrome.storage.local.remove(['sessionActivationStatus'], () => {});
-
-(() => {
-	let xhr = new XMLHttpRequest();
-	xhr.open('GET', "data.json");
-	xhr.setRequestHeader('Content-Type', 'application/json');
-	xhr.onload = () => {
-		if (xhr.status != 200) {
-			chrome.storage.local.set({globalActivationStatus: true});
-			return;
+function fetchDefaultData() {
+	return new Promise((resolve, _reject) => {
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', "data.json");
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.onload = () => {
+			resolve(JSON.parse(xhr.responseText));
 		}
-		let data = JSON.parse(xhr.responseText);
-		chrome.storage.local.set({version: data.version}, () => {})
-		blocked_domains = data.domains;
 
-		chrome.storage.local.get(['globalActivationStatus'], res => {
-			if (res.globalActivationStatus) {
-				activate();
-				chrome.storage.local.set({sessionActivationStatus: true}, () => {})
-			}
-			chrome.storage.onChanged.addListener(changes => {
-				if (changes.sessionActivationStatus) {
-					changes.sessionActivationStatus.newValue ? activate() : deactivate();
-				}
-			})
+		xhr.send();
+	})
+}
+
+function fetchStorageData() {
+	return new Promise((resolve, _reject) => {
+		getStorageData(['version', 'domains']).then(res => {
+			resolve({ version: res.version, domains: res.domains });
 		})
-	};
-	xhr.send();
+	})
+}
+
+function loadData() {
+	return new Promise((resolve, _reject) => {
+		Promise.all([fetchDefaultData(), fetchStorageData()])
+			.then(([defaultData, storageData]) => {
+				const storageDataAvailable = storageData.version && storageData.domains;
+				const data = storageDataAvailable ? storageData : defaultData;
+				if (!storageDataAvailable) {
+					// No data in storage (first launch) or corrupted data => store default data
+					setStorageData({ version: data.version, domains: data.domains });
+				}
+				blocked_domains = data.domains;
+				return resolve();
+			})
+	});
+}
+
+async function changeActivationStatusTo(active) {
+	if (!active) {
+		return deactivate();
+	}
+
+	activate();
+	checkForUpdate().then(async updated => {
+		if (updated) {
+			await loadData();
+			deactivate();
+			activate();
+		}
+	});
+}
+
+(async () => {
+	await removeStorageData(['sessionActivationStatus']);
+
+	await loadData();
+	chrome.commands.onCommand.addListener(function (command) {
+		if (command === 'toggle-session-activation-status') {
+			getStorageData(['sessionActivationStatus']).then(res => {
+				setStorageData({ sessionActivationStatus: !res.sessionActivationStatus })
+				chrome.notifications.create('', { title: 'DNS Blocker', message: !res.sessionActivationStatus ? 'Activation : On' : 'Activation : Off', iconUrl: 'assets/shield128.png', type: 'basic' })
+			})
+		}
+	});
+
+	chrome.storage.onChanged.addListener(changes => {
+		if (changes.sessionActivationStatus) {
+			changeActivationStatusTo(changes.sessionActivationStatus.newValue);
+		}
+	})
+
+	getStorageData(['globalActivationStatus']).then(res => {
+		const newStatus = res.globalActivationStatus === undefined ? true : res.globalActivationStatus;
+		setStorageData({ globalActivationStatus: newStatus, sessionActivationStatus: newStatus })
+	})
 })();

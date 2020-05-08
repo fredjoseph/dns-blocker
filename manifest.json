@@ -8,13 +8,15 @@
     "webRequest",
     "webRequestBlocking",
     "storage",
+    "unlimitedStorage",
+    "notifications",
     "http://*/",
     "https://*/"
   ],
   "icons": {
-    "16": "assets/shield-red16.png",
-    "48": "assets/shield-red48.png",
-    "128": "assets/shield-red128.png"
+    "16": "assets/shield16.png",
+    "48": "assets/shield48.png",
+    "128": "assets/shield128.png"
   },
   "background": {
     "scripts": [
@@ -23,8 +25,8 @@
   },
   "browser_action": {
     "default_icon": {
-      "16": "assets/shield-red16.png",
-      "32": "assets/shield-red32.png"
+      "16": "assets/shield16.png",
+      "32": "assets/shield32.png"
     },
     "default_popup": "popup.html"
   },
@@ -32,6 +34,19 @@
     "gecko": {
       "strict_min_version": "57.0"
     }
-  },  
+  },
+  "commands": {
+    "toggle-session-activation-status": {
+      "suggested_key": {
+        "default": "Alt+B"
+      },
+      "description": "Toggle Session activation Status"
+    },
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+B"
+      }
+    }
+  },
   "manifest_version": 2
 }

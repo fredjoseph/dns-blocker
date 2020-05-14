@@ -46,7 +46,7 @@ def main(argv):
         if args.publish:
             cmd.run("git add .", check=True, shell=True)
             cmd.run("git commit -m \"Update list of blocked domains\"", check=True, shell=True)
-            cmd.run("git push", check=True, shell=True)
+            cmd.run("git push origin master", check=True, shell=True)
     else:
         print('No change to commit')
    

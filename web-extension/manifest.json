@@ -30,6 +30,10 @@
     },
     "default_popup": "popup.html"
   },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "57.0"

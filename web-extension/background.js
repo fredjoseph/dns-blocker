@@ -1,4 +1,4 @@
-const refresh_url = 'https://raw.githubusercontent.com/fredjoseph/dns-blocker/master/data.json';
+const refresh_url = 'https://raw.githubusercontent.com/fredjoseph/dns-blocker/master/web-extension/data.json';
 var enabled = false;
 var blocked_domains;
 
@@ -52,10 +52,14 @@ function deactivate() {
 
 async function checkForUpdate() {
 	return new Promise(async (resolve, reject) => {
-		const { lastCheckDate, version } = await getStorageData(['lastCheckDate', 'version']);
+		const { lastCheckDate: lastCheckDateISO, updateInterval = 1, version } = await getStorageData(['lastCheckDate', 'updateInterval', 'version']);
 		const currentDateISO = new Date().toISOString().split('T')[0];
-		if (currentDateISO === lastCheckDate) {
-			return resolve(false);	// already check today
+		const currentDate = new Date(currentDateISO);
+		const lastCheckDate = new Date(lastCheckDateISO);
+
+		const diffDays = (currentDate.getTime() - lastCheckDate.getTime()) / (1000 * 3600 * 24);
+		if (updateInterval === 0 || diffDays < updateInterval) {
+			return resolve(false);	// already check recently
 		}
 		let xhr = new XMLHttpRequest();
 		xhr.open('GET', refresh_url);

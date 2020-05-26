@@ -1,5 +1,5 @@
 {
-    "version": "2020-05-22",
+    "version": "2020-05-26",
     "domains": [
         "*://0.0.0.0/*",
         "*://01mspmd5yalky8.com/*",
@@ -92283,6 +92283,35 @@
         "*://zzsyw.com/*",
         "*://d2r7bmv6l6bnd1.cloudfront.net/*",
         "*://d3aiy6aqoa3ykz.cloudfront.net/*",
-        "*://prf.hn/*"
+        "*://prf.hn/*",
+        "*://ams.creativecdn.com/*",
+        "*://bsw.digitru.st/*",
+        "*://global.fncstatic.com/*",
+        "*://px.powerlinks.com/*",
+        "*://us-east-sync.bidswitch.net/*",
+        "*://us-sync.taboola.com/*",
+        "*://snapsext.com/*",
+        "*://api-2-0.spot.im/*",
+        "*://cdn.flipboard.com/*",
+        "*://cm.ctnsnet.com/*",
+        "*://cm.everesttech.net/*",
+        "*://csync.loopme.me/*",
+        "*://f656ca57e97271565f34ac1ca51d3b63.safeframe.googlesyndication.com/*",
+        "*://foxnews-d.openx.net/*",
+        "*://images.spot.im/*",
+        "*://js.taplytics.com/*",
+        "*://kinesis.us-east-1.amazonaws.com/*",
+        "*://launcher.spot.im/*",
+        "*://matchadsrvr.yieldmo.com/*",
+        "*://perr.h-cdn.com/*",
+        "*://player.h-cdn.com/*",
+        "*://qsearch-a.akamaihd.net/*",
+        "*://scripts.mf.webcontentassessor.com/*",
+        "*://server.exposebox.com/*",
+        "*://sofia.trustx.org/*",
+        "*://static-cdn.spot.im/*",
+        "*://static-eb.media.net/*",
+        "*://sync.targeting.unrulymedia.com/*",
+        "*://webcontentassessor.global.ssl.fastly.net/*"
     ]
 }

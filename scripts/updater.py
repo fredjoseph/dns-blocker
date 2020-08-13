@@ -2,7 +2,7 @@ import sys, argparse, requests, datetime, json
 import subprocess as cmd
 from pathlib import Path
 
-STEVEN_URL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts"
+STEVEN_URL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
 BLOCKER_DNS_URL = "https://blockerdns.com/hosts-ads.json"
 MY_DNS_URL = "https://raw.githubusercontent.com/fredjoseph/dns-blocker/master/scripts/domains.json"
 

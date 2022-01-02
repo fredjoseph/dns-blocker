@@ -3,6 +3,7 @@ import subprocess as cmd
 from pathlib import Path
 
 STEVEN_URL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
+PGL_YOYO_URL = "https://pgl.yoyo.org/adservers/serverlist.php?showintro=0&mimetype=plaintext"
 BLOCKER_DNS_URL = "https://blockerdns.com/hosts-ads.json"
 MY_DNS_URL = "https://raw.githubusercontent.com/fredjoseph/dns-blocker/master/scripts/domains.json"
 
@@ -15,16 +16,23 @@ def main(argv):
     parser.add_argument("-p", "--publish", help="push updates directly to 'origin master'", action="store_true")
     args = parser.parse_args()
 
+    full_list = []
     with requests.get(STEVEN_URL, stream=True) as r1:
         steven_list = ["*://{}/*".format(line.split(' ')[1]) for line in r1.iter_lines(decode_unicode=True) if line.startswith('0.0.0.0')]
-
+        full_list = steven_list
+        
+    with requests.get(PGL_YOYO_URL, stream=True) as r1:
+        pgl_yoyo_list = ["*://{}/*".format(line.split(' ')[1]) for line in r1.iter_lines(decode_unicode=True) if line.startswith('127.0.0.1')]
+        pgl_yoyo_filtered_list = diff(pgl_yoyo_list, full_list)
+        full_list = full_list + pgl_yoyo_filtered_list
+        
     blocker_dns_list = requests.get(BLOCKER_DNS_URL).json()['adDomains']
-    blocker_dns_list_filtered = diff(blocker_dns_list, steven_list)
+    blocker_dns_filtered_list = diff(blocker_dns_list, full_list)
+    full_list = full_list + blocker_dns_filtered_list
 
     my_list = requests.get(MY_DNS_URL).json()['domains']
-    my_list_filtered = diff(my_list, steven_list)
-
-    full_list = steven_list + blocker_dns_list_filtered + my_list_filtered
+    my_filtered_list = diff(my_list, full_list)
+    full_list = full_list + my_filtered_list
 
     data = {
         'version': datetime.datetime.now().date().isoformat(),
@@ -32,8 +40,9 @@ def main(argv):
     }
 
     print('Steven List: {0} elements'.format(len(steven_list)))
-    print('Blocker DNS List: {0} elements (unique: {1})'.format(len(blocker_dns_list), len(blocker_dns_list_filtered)))
-    print('My DNS List: {0} elements (unique: {1})'.format(len(my_list), len(my_list_filtered)))
+    print('yoyo List: {0} elements (unique: {1})'.format(len(pgl_yoyo_list), len(pgl_yoyo_filtered_list)))
+    print('Blocker DNS List: {0} elements (unique: {1})'.format(len(blocker_dns_list), len(blocker_dns_filtered_list)))
+    print('My DNS List: {0} elements (unique: {1})'.format(len(my_list), len(my_filtered_list)))
     print('Total Elements : {0}'.format(len(full_list)))
 
     data_path = Path(__file__).parent / '../web-extension/data.json'

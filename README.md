@@ -14,7 +14,7 @@ DNS Blocker for Chrome and Firefox (Web Extension)
 6. Uninstall the previously installed extension (as unpacked extension)
 7. Install the extension using the `.crx` file generated at step `5` and note its `ID`
 8. Add the following registry key 
-    - Under `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallWhitelist` (create it if not exists), create a new string for each extension you want to enable with sequential names (indices), e.g. 1, 2,...
+    - Under `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist` (create it if not exists), create a new string for each extension you want to enable with sequential names (indices), e.g. 1, 2,...
     - Enter the extension ID as string value. For example: there is a string with name `1` and value `nmgnihglilniboicepgjclfiageofdfj`
 9. Restart Chrome
 10. You can check that the policy is working in Chrome by opening `chrome://policy`

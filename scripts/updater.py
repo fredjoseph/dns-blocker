@@ -28,7 +28,7 @@ def main(argv):
         full_list = full_list + pgl_yoyo_filtered_list
 
     with requests.get(SOMEONE_WHO_CARES_URL, stream=True) as r1:
-        someone_who_cares_list = ["*://{}/*".format(line.split(' ')[1]) for line in r1.iter_lines(decode_unicode=True) if line.startswith('127.0.0.1')]
+        someone_who_cares_list = ["*://{}/*".format(line.split(' ')[1]) for line in r1.iter_lines(decode_unicode=True) if line.startswith('127.0.0.1') and ' ' in line]
         someone_who_cares_filtered_list = diff(someone_who_cares_list, full_list)
         full_list = full_list + someone_who_cares_filtered_list
         

@@ -6,6 +6,7 @@ STEVEN_URL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alterna
 PGL_YOYO_URL = "https://pgl.yoyo.org/adservers/serverlist.php?showintro=0&mimetype=plaintext"
 BLOCKER_DNS_URL = "https://blockerdns.com/hosts-ads.json"
 SOMEONE_WHO_CARES_URL = "https://someonewhocares.org/hosts/hosts"
+ADAWAY_URL = "https://adaway.org/hosts.txt"
 MY_DNS_URL = "https://raw.githubusercontent.com/fredjoseph/dns-blocker/master/scripts/domains.json"
 
 def diff(first, second):
@@ -31,6 +32,11 @@ def main(argv):
         someone_who_cares_list = ["*://{}/*".format(line.split(' ')[1]) for line in r1.iter_lines(decode_unicode=True) if line.startswith('127.0.0.1') and ' ' in line]
         someone_who_cares_filtered_list = diff(someone_who_cares_list, full_list)
         full_list = full_list + someone_who_cares_filtered_list
+
+    with requests.get(ADAWAY_URL, stream=True) as r1:
+        adaway_list = ["*://{}/*".format(line.split(' ')[1]) for line in r1.iter_lines(decode_unicode=True) if line.startswith('127.0.0.1') and ' ' in line]
+        adaway_filtered_list = diff(adaway_list, full_list)
+        full_list = full_list + adaway_filtered_list
         
     blocker_dns_list = requests.get(BLOCKER_DNS_URL).json()['adDomains']
     blocker_dns_filtered_list = diff(blocker_dns_list, full_list)
@@ -49,6 +55,7 @@ def main(argv):
     print('yoyo List: {0} elements (unique: {1})'.format(len(pgl_yoyo_list), len(pgl_yoyo_filtered_list)))
     print('Blocker DNS List: {0} elements (unique: {1})'.format(len(blocker_dns_list), len(blocker_dns_filtered_list)))
     print('SomeoneWhoCares List: {0} elements (unique: {1})'.format(len(someone_who_cares_list), len(someone_who_cares_filtered_list)))
+    print('Adaway List: {0} elements (unique: {1})'.format(len(adaway_list), len(adaway_filtered_list)))
     print('My DNS List: {0} elements (unique: {1})'.format(len(my_list), len(my_filtered_list)))
     print('Total Elements : {0}'.format(len(full_list)))
 

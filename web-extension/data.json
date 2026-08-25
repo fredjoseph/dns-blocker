@@ -1,5 +1,5 @@
 {
-    "version": "2026-08-24",
+    "version": "2026-08-25",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -167464,6 +167464,7 @@
         "*://wpad/*",
         "*://www.allhqpics.com\t\t\t#/*",
         "*://www.chelick.net\t\t\t#/*",
+        "*://www.financevd.com/*",
         "*://www.likeportal.com\t\t\t#/*",
         "*://www.likespike.com\t\t\t#/*",
         "*://www.likethis.mbosoft.com\t\t#/*",

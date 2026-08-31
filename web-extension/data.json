@@ -1,5 +1,5 @@
 {
-    "version": "2026-08-30",
+    "version": "2026-08-31",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -164624,6 +164624,7 @@
         "*://impressionmedia.cz/*",
         "*://ingest.in.signoz.cloud/*",
         "*://maliva-mcs.byteoversea.com/*",
+        "*://obs.sd4823.spglobal.com/*",
         "*://pooinc-7dw.pages.dev/*",
         "*://popunhot1.blogspot.com/*",
         "*://pubfuture-ssp.com/*",
@@ -164637,6 +164638,7 @@
         "*://t.nc0.co/*",
         "*://track.mediav.com/*",
         "*://twisty.net/*",
+        "*://xml-v4.oceanfall.xyz/*",
         "*://media.fastclick.net\t#/*",
         "*://cdn.fastclick.net\t#/*",
         "*://activity.serving-sys.com\t#eyeblaster.com/*",

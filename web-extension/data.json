@@ -1,5 +1,5 @@
 {
-    "version": "2026-09-01",
+    "version": "2026-09-02",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -163568,12 +163568,14 @@
         "*://postecan-canpost.updt491.link/*",
         "*://proflashdata.com\t\t\t#/*",
         "*://scottishstuff-online.com\t#/*",
+        "*://securesweep.pro/*",
         "*://tattooshaha.info\t\t\t#/*",
         "*://thedatesafe.com\t\t\t#/*",
         "*://tomorrownewstoday.com\t#/*",
         "*://wpad/*",
         "*://www.allhqpics.com\t\t\t#/*",
         "*://www.chelick.net\t\t\t#/*",
+        "*://www.elmerdiner.com/*",
         "*://www.likeportal.com\t\t\t#/*",
         "*://www.likespike.com\t\t\t#/*",
         "*://www.likethis.mbosoft.com\t\t#/*",

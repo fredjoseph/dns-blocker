@@ -1,5 +1,5 @@
 {
-    "version": "2026-09-08",
+    "version": "2026-09-09",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -164547,6 +164547,7 @@
         "*://thedatesafe.com\t\t\t#/*",
         "*://tomorrownewstoday.com\t#/*",
         "*://wpad/*",
+        "*://www.aaaddedbenifits.com/*",
         "*://www.allhqpics.com\t\t\t#/*",
         "*://www.chelick.net\t\t\t#/*",
         "*://www.likeportal.com\t\t\t#/*",
@@ -164559,6 +164560,7 @@
         "*://www.shinilchurch.net\t#/*",
         "*://www.tattooshaha.info\t\t\t#/*",
         "*://www.thedatesafe.com\t\t\t#/*",
+        "*://www.tuscanypointevillas.com/*",
         "*://www.upi6.pillsstore-c.com\t\t#/*",
         "*://xhealthmobiletools.112.2o7.net/*",
         "*://AUSpolice.com/*",
@@ -164575,6 +164577,7 @@
         "*://PAKpolice.com/*",
         "*://USApolice.com/*",
         "*://citycash2.blogspot.com/*",
+        "*://cleancrdio.shop/*",
         "*://creditsoffer.blogspot.com/*",
         "*://getyour5kcredits0.blogspot.com/*",
         "*://getyourgiftnow2.blogspot.com/*",

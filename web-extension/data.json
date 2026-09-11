@@ -1,5 +1,5 @@
 {
-    "version": "2026-09-10",
+    "version": "2026-09-11",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -164970,11 +164970,13 @@
         "*://adserv.snigelweb.com/*",
         "*://adtagj.portal-factory.com/*",
         "*://link-booster.de/*",
+        "*://metrix.luxnet.io/*",
         "*://opoxv.com/*",
         "*://pemsrv.com/*",
         "*://popunhot1.blogspot.com/*",
         "*://pubbug.com/*",
         "*://smetrics.washingtonpost.com/*",
+        "*://stats.in.th/*",
         "*://t.co/*",
         "*://yads.tech/*",
         "*://media.fastclick.net\t#/*",
@@ -165044,6 +165046,7 @@
         "*://www.likethis.mbosoft.com\t\t#/*",
         "*://www.likethislist.biz\t\t\t#/*",
         "*://www.lomalindasda.org\t\t\t#/*",
+        "*://www.mdarussellhobbs.com/*",
         "*://www.mylike.co.uk\t\t\t#/*",
         "*://www.proflashdata.com\t\t\t#/*",
         "*://www.shinilchurch.net\t#/*",

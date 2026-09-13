@@ -1,5 +1,5 @@
 {
-    "version": "2026-09-12",
+    "version": "2026-09-13",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -164989,6 +164989,7 @@
         "*://stats.in.th/*",
         "*://t.co/*",
         "*://tr.p.360.cn/*",
+        "*://track.dws.com/*",
         "*://writerhubs.com/*",
         "*://yads.tech/*",
         "*://media.fastclick.net\t#/*",

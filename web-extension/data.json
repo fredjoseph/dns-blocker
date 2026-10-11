@@ -1,5 +1,5 @@
 {
-    "version": "2026-10-08",
+    "version": "2026-10-11",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -157941,6 +157941,7 @@
         "*://r.openai.com/*",
         "*://roaddynamics.com/*",
         "*://roguephilosopher.com/*",
+        "*://session.bugsnag.kindle.amazon.dev/*",
         "*://smetrics.washingtonpost.com/*",
         "*://stats.in.th/*",
         "*://t.co/*",

@@ -1,5 +1,5 @@
 {
-    "version": "2026-10-11",
+    "version": "2026-10-13",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -157924,6 +157924,7 @@
         "*://bastingart.com/*",
         "*://bigworldfashion.com/*",
         "*://click-v4.expclknb.com/*",
+        "*://darngavel.com/*",
         "*://jewelrysprings.com/*",
         "*://kernellife.com/*",
         "*://link-booster.de/*",

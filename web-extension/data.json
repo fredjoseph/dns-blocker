@@ -1,5 +1,5 @@
 {
-    "version": "2026-10-13",
+    "version": "2026-10-14",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -158008,6 +158008,7 @@
         "*://postecan-canpost.confrm942.link/*",
         "*://postecan-canpost.updt491.link/*",
         "*://proflashdata.com\t\t\t#/*",
+        "*://reminderannual2reward.com/*",
         "*://scottishstuff-online.com\t#/*",
         "*://tattooshaha.info\t\t\t#/*",
         "*://thedatesafe.com\t\t\t#/*",

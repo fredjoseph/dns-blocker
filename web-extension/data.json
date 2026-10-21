@@ -1,5 +1,5 @@
 {
-    "version": "2026-10-20",
+    "version": "2026-10-21",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -156929,6 +156929,7 @@
         "*://4dex.io/*",
         "*://50websads.com/*",
         "*://absolutering.com/*",
+        "*://ad.twinrdengine.com/*",
         "*://ad7.biz/*",
         "*://ads-impressions.com/*",
         "*://ads-monitor.xyz/*",
@@ -156949,6 +156950,7 @@
         "*://jewelrysprings.com/*",
         "*://kernellife.com/*",
         "*://kraken.rambler.ru/*",
+        "*://l.ca.ovhcloud.com/*",
         "*://link-booster.de/*",
         "*://metrix.luxnet.io/*",
         "*://mtrtb.com/*",

@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-03",
+    "version": "2026-11-07",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -163139,6 +163139,7 @@
         "*://beacon.viafoura.io/*",
         "*://checkmyimp.com/*",
         "*://click-v4.expclknb.com/*",
+        "*://clickadu.io/*",
         "*://controlium.net/*",
         "*://cookiesurfer.com/*",
         "*://darngavel.com/*",
@@ -163153,12 +163154,12 @@
         "*://myweb3id.io/*",
         "*://nutralove.co/*",
         "*://offers.gateway-lts450.com/*",
-        "*://offers.ltsc-has.com/*",
         "*://opoxv.com/*",
         "*://otheve.beacon.qq.com/*",
         "*://partnerhut.com/*",
         "*://pemsrv.com/*",
         "*://platc-tester.com/*",
+        "*://playwarren.com/*",
         "*://popunhot1.blogspot.com/*",
         "*://powerium.net/*",
         "*://pubbug.com/*",

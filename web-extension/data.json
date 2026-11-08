@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-07",
+    "version": "2026-11-08",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -163165,6 +163165,7 @@
         "*://pubbug.com/*",
         "*://pushub.net/*",
         "*://quicktattoo.com/*",
+        "*://r.brandreward.com/*",
         "*://r.openai.com/*",
         "*://roaddynamics.com/*",
         "*://roguephilosopher.com/*",

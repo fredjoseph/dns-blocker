@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-12",
+    "version": "2026-11-13",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -163546,6 +163546,7 @@
         "*://s.appreports.net/*",
         "*://session.bugsnag.kindle.amazon.dev/*",
         "*://smetrics.washingtonpost.com/*",
+        "*://speciesjewelry.com/*",
         "*://spyrep.com/*",
         "*://stats.in.th/*",
         "*://t.co/*",

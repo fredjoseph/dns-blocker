@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-13",
+    "version": "2026-11-14",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -163528,6 +163528,7 @@
         "*://myweb3id.io/*",
         "*://nutralove.co/*",
         "*://offers.gateway-lts450.com/*",
+        "*://offers.ltsc-has.com/*",
         "*://opoxv.com/*",
         "*://otheve.beacon.qq.com/*",
         "*://partnerhut.com/*",

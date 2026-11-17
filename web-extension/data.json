@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-16",
+    "version": "2026-11-17",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -161324,6 +161324,7 @@
         "*://popunhot1.blogspot.com/*",
         "*://smetrics.washingtonpost.com/*",
         "*://t.co/*",
+        "*://topicspin.com/*",
         "*://media.fastclick.net\t#/*",
         "*://cdn.fastclick.net\t#/*",
         "*://activity.serving-sys.com\t#eyeblaster.com/*",

@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-18",
+    "version": "2026-11-19",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -161321,6 +161321,7 @@
         "*://www2.giga-jp.com/*",
         "*://yamidas.yamiboard.com/*",
         "*://yamigama.com/*",
+        "*://axcii.com/*",
         "*://popunhot1.blogspot.com/*",
         "*://smetrics.washingtonpost.com/*",
         "*://sportswidows.com/*",

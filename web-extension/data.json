@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-19",
+    "version": "2026-11-21",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -161322,6 +161322,7 @@
         "*://yamidas.yamiboard.com/*",
         "*://yamigama.com/*",
         "*://axcii.com/*",
+        "*://links.prosservice.fr/*",
         "*://popunhot1.blogspot.com/*",
         "*://smetrics.washingtonpost.com/*",
         "*://sportswidows.com/*",

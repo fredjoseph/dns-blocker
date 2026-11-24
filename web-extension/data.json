@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-23",
+    "version": "2026-11-24",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -161324,6 +161324,7 @@
         "*://axcii.com/*",
         "*://fhvfd.com/*",
         "*://links.prosservice.fr/*",
+        "*://native123.com/*",
         "*://popunhot1.blogspot.com/*",
         "*://smetrics.washingtonpost.com/*",
         "*://sportswidows.com/*",

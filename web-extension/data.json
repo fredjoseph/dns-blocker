@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-25",
+    "version": "2026-11-26",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -166901,6 +166901,7 @@
         "*://smetrics.washingtonpost.com/*",
         "*://sportswidows.com/*",
         "*://t.co/*",
+        "*://timeprince.com/*",
         "*://topicspin.com/*",
         "*://media.fastclick.net\t#/*",
         "*://cdn.fastclick.net\t#/*",
@@ -166932,6 +166933,7 @@
         "*://2006mindfreaklike.blogspot.com\t#/*",
         "*://allhqpics.com\t\t\t\t#/*",
         "*://bnvxcfhdgf.blogspot.com.es/*",
+        "*://bouncemultiple.pro/*",
         "*://brunga.at\t#/*",
         "*://changduk26.com\t\t\t#/*",
         "*://chelick.net\t\t\t\t#/*",

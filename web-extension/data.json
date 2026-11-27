@@ -1,5 +1,5 @@
 {
-    "version": "2026-11-26",
+    "version": "2026-11-27",
     "domains": [
         "*://0.0.0.0/*",
         "*://ad-assets.futurecdn.net/*",
@@ -166894,6 +166894,8 @@
         "*://yamidas.yamiboard.com/*",
         "*://yamigama.com/*",
         "*://axcii.com/*",
+        "*://berrytots.com/*",
+        "*://capablepotato.com/*",
         "*://fhvfd.com/*",
         "*://links.prosservice.fr/*",
         "*://native123.com/*",
